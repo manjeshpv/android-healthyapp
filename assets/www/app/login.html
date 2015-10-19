@@ -1,0 +1,40 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Mobile Verification</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="text-center">
+      <h1 class="note-header">Please enter your mobile number</h1>
+      <p class="note-description">We need your mobile number to keep you updated on your order and delivery status.</p>
+    </div>
+
+    <form ng-submit="doRequestOTP(mobile)" class="eighty">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label" style="width: 50px;">+91</span>
+          <input type="number" placeholder="Enter Mobile Number" ng-model="mobile">
+        </label>
+
+        <label class="item">
+          <button class="button button-block button-positive" type="submit" ng-bind="OTPButtonText">Send OTP</button>
+        </label>
+      </div>
+    </form>
+
+    <form ng-submit="doVerifyOTP(mobile,code)" class="eighty otp-form" ng-if="otpSentFlag==true">
+      <div class="list">
+        <label class="item item-input">
+
+          <input type="number" class="input-otp"  placeholder="Enter OTP" ng-model="code">
+        </label>
+
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Verify</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
